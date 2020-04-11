@@ -9,6 +9,7 @@ layer make_region_layer(int batch, int w, int h, int n, int classes, int coords)
 void forward_region_layer(const layer l, network net);
 void backward_region_layer(const layer l, network net);
 void resize_region_layer(layer *l, int w, int h);
+void forward_region_layer_pointer_nolayer(network* net, float *input);
 
 #ifdef GPU
 void forward_region_layer_gpu(const layer l, network net);
