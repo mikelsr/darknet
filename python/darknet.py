@@ -122,6 +122,15 @@ def classify(net, meta, im):
     res = sorted(res, key=lambda x: -x[1])
     return res
 
+def classify_nosort(net, meta, im):
+    out = predict_image(net, im)
+    res = []
+    for i in range(meta.classes):
+        res.append((meta.names[i], out[i]))
+    # res = sorted(res, key=lambda x: -x[1])
+    return res
+
+
 def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
     im = load_image(image, 0, 0)
     num = c_int(0)
